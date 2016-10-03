@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="ui.js"></script>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="menu">
+            <div id="toggleWindow">
+                <div class="max ico">&#9633;</div>
+                <div class="reg ico">&#10697;</div>
+            </div>
+            <ul>
+                <li>File
+                    <ul>
+                        <li>Open Image<input type="file" id="imgInp" value="Choose Image"></li>
+                        <li>Open Project</li>
+                        <li class="sepTop">Save Project</li>
+                        <li>Export</li>
+                        <li class="sepTop" id="closeImage">Close</li>
+                    </ul>
+                </li>
+                <li>Help</li>
+            </ul>
+            <div id="tools">
+                <div id="checkToggle">
+                    <div class="checkered ico">&#9641;</div>
+                    <div class="uncheckered ico">&#9632;</div>
+                </div>
+
+                <div id="opacityToggle">
+                    <div class="opacity ico">&#9680;</div>
+                    <div class="sliderBG">
+                        <input id="slider1" type="range" min="0" max="1" step="0.025" value="1" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="play hidden">
+            <div class="right hidden">
+                
+                <div id="miniToolBox">
+                    <div id="toggleSideBar" class="hidden">
+                        <div class="hide ico ico2">&#8608;</div>
+                        <div class="show ico ico2">&#8606;</div>
+                    </div>
+
+                    <div id="zoomCont">
+                        <div class="zoom ico ico2">&#9698;</div>
+                        <div class="zoomBG">
+                            <div class="smallImg">
+                                <div class="bgImg"></div>
+                            </div>
+                            <input id="zoomSlider" type="range" min="1" max="10" step="1" value="1" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layerPanel">
+                    <div class="singlePreview">
+                        <h3>Icon Preview</h3>
+                        <div id="prevCont">dsfsd</div>
+                    </div>
+                    <div class="singlePreview">
+                        <h3>Icon Preview</h3>
+                        <div id="prevCont">dsfsd</div>
+                    </div>
+                </div>
+            </div>
+            <div class="left">
+                <div id="mainCont">
+                    <div id="mainImgCont">
+                        <div id="mainImg" class="bgImg"></div>
+                        <svg id="mySvg">
+                            <circle cx="5" cy="5" r="5" stroke="green" stroke-width="2" fill="yellow" id="rez" onmousedown="rezHandler(evt)" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">X:0 Y:0</div>
+    </div>
+    <style id="styl"></style>
+</body>
+
+</html>
