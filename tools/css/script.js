@@ -21,7 +21,7 @@ $(document).ready(function () {
         var offset = $(this).offset();
         var x = e.pageX - offset.left;
         var y = e.pageY - offset.top;
-        if (add) addElem(x, y);
+        if (add) addElem(x/zoom, y/zoom);
     });
 });
 
@@ -166,13 +166,13 @@ $(document).on("mousemove", function (evt) {
         var dx = Math.max(evt.pageX - off.left, parseInt(arr[4]) + 1);
         var dy = Math.max(evt.pageY - off.top, parseInt(arr[5]) + 1);
 
-        $("#rez").attr("cx", dx);
-        $("#rez").attr("cy", dy);
+        $("#rez").attr("cx", dx/zoom);
+        $("#rez").attr("cy", dy/zoom);
 
-        var w = dx - parseInt(arr[4]), h = dy - parseInt(arr[5]);
+        var w = dx/zoom - parseInt(arr[4]), h = dy/zoom - parseInt(arr[5]);
 
-        $(activElem).attr("width", Math.max(1, w));
-        $(activElem).attr("height", Math.max(1, h));
+        $(activElem).attr("width", Math.max(1, Math.floor(w)));
+        $(activElem).attr("height", Math.max(1, Math.floor(h)));
 
         $("#tmp").css("width", w);
         $("#tmp").css("height", h);
@@ -196,6 +196,12 @@ $(document).on("mousemove", function (evt) {
         $("#tmp").css("width", w);
         $("#tmp").css("height", h);
     }
+
+    var dx = evt.pageX - off.left;
+    var dy = evt.pageY - off.top;
+
+    $("#guide").attr("cx", dx/zoom);
+    $("#guide").attr("cy", dy/zoom);
 });
 
 

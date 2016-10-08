@@ -1,3 +1,12 @@
+var isCtrlActive = false;
+
+
+$(document).on('keydown', function (e) {
+    if (e.which == 17) {isCtrlActive = true};
+});
+
+$(document).on('keyup', function (e) {isCtrlActive = false});
+
 $(document).ready(function(){
     $("#toggleSideBar div").on("click",function(){
         $("#toggleSideBar, .play, .play .right").toggleClass("hidden");
@@ -12,11 +21,8 @@ $(document).ready(function(){
     });
 
     $("#zoomSlider").change(function () {
-        zoom = $("#zoomSlider").val();
-        $('#mainImgCont').css('width', mainW * zoom);
-        $('#mainImgCont').css('height', mainH * zoom);
-        $('#mySvg').attr('width', mainW * zoom);
-        $('#mySvg').attr('height', mainH * zoom);
+        zoom = parseInt($("#zoomSlider").val());
+        changeZoom();
     });
 
     $("#toggleWindow div").on("click",function(){
@@ -30,6 +36,28 @@ $(document).ready(function(){
         $("#mainImg,#mainImgCont").css("height", 0);
         $("#tools").css("display","none");
     });
+});
+
+function changeZoom(){
+    $('#mainImgCont').css('width', mainW * zoom);
+    $('#mainImgCont').css('height', mainH * zoom);
+    $('#mySvg').attr('width', mainW * zoom);
+    $('#mySvg').attr('height', mainH * zoom);
+    $("#zoomSlider").val(zoom);
+}
+
+$('html').bind('mousewheel DOMMouseScroll', function (e) {
+    if(isCtrlActive){
+        var delta = (e.originalEvent.wheelDelta || -e.originalEvent.detail);
+        var zoomIn = (delta < 0) ? false : true;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        zoom += (zoomIn) ? 1 : -1;
+        zoom = zoom.clamp(1,10);
+        changeZoom();
+    }
 });
 
 function toggleFullScreen() {
@@ -51,3 +79,7 @@ function toggleFullScreen() {
         }
     }
 }
+
+Number.prototype.clamp = function(min, max) {
+  return Math.min(Math.max(this, min), max);
+};

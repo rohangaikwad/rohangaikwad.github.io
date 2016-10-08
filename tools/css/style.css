@@ -220,6 +220,10 @@ input{pointer-events: all}
 #rez{
     z-index:999;
     cursor:nw-resize;
+    opacity:0.6;
+}
+#rez:hover{
+    opacity:0.2;
 }
 
 
