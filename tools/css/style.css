@@ -13,6 +13,10 @@ html,body {height: 100%}
 }
 
 #footer{height:20px;line-height: 20px;color:#ccc;position: absolute;bottom: 0;left: 4px;font-size:13px;width:100%;}
+#footer > div{display:inline-block}
+.futRightCopy{padding: 0 6px;background:#555;cursor:pointer;margin: 0 6px}
+.futRightCopy:hover{background:#222}
+#txtArea{position:absolute;left:-10000px}
 
 .menu {
     background: #383838;
@@ -190,13 +194,26 @@ li.sepTop{border-top:solid 1px #222}
     display:inline-block;
 }
 
-#prevCont{
-    background: #535353;
-    font-size: 14px;
-    border: solid 1px #383838;
-    margin-top: -1px;
-    border-left:none;
-}
+#layersCont{border-top:solid 1px #454545}
+.layer{width:100%;height:27px;display:inline-block;border-bottom:solid 1px #454545;background-color:#535353;box-sizing:border-box;cursor:pointer;}
+.layer > div {display:inline-block;vertical-align:top;height:100%}
+
+.layer .tick{width:30px;overflow:hidden;border-right:solid 1px #454545;}
+.layer .tick > div{width:30px;color:#f0f0f0;font-size: 14px;line-height: 28px;text-align:center}
+.layer .tick.hidden > div.show{display:none}
+.layer .tick > div.hide{display:none; font-size: 10px;}
+.layer .tick.hidden > div.hide{display:inline-block}
+.layer .tick:hover{background:#444}
+
+.layer .miniImgCont{width:30px;height:18px;background:white;border:solid 1px #000; cursor:crosshair;margin:3px 5px 0;border-right:solid 1px #454545;}
+
+.layer .layerName{width:186px;color:#fff;font-size:13px;line-height:27px;padding:0 10px;cursor:text;border-left:solid 1px #454545;}
+
+.layer .deleteLayer{width:30px;color:#fff;font-size:20px;line-height:24px;text-align:center}
+.layer .deleteLayer:hover{background:#444}
+
+
+
 
 
 #mySvg{
@@ -209,13 +226,13 @@ li.sepTop{border-top:solid 1px #222}
 input{pointer-events: all}
 
 .sRct{
-    fill:#ff0000;
-    opacity:0.6;
+    fill:rgba(255,0,0,0.3);
+    opacity:1;
     cursor: move;
     z-index:1;
 }
 .seRect{
-    fill:#00ff00;
+    fill:rgba(0,255,0,0.3);
 }
 #rez{
     z-index:999;
@@ -223,7 +240,7 @@ input{pointer-events: all}
     opacity:0.6;
 }
 #rez:hover{
-    opacity:0.2;
+    opacity:0;
 }
 
 

@@ -2,17 +2,17 @@ var isCtrlActive = false;
 
 
 $(document).on('keydown', function (e) {
-    if (e.which == 17) {isCtrlActive = true};
+    if (e.which == 17) { isCtrlActive = true };
 });
 
-$(document).on('keyup', function (e) {isCtrlActive = false});
+$(document).on('keyup', function (e) { isCtrlActive = false });
 
-$(document).ready(function(){
-    $("#toggleSideBar div").on("click",function(){
+$(document).ready(function () {
+    $("#toggleSideBar div").on("click", function () {
         $("#toggleSideBar, .play, .play .right").toggleClass("hidden");
     });
 
-    $("#checkToggle div").on("click",function(){
+    $("#checkToggle div").on("click", function () {
         $("#checkToggle, #mainCont").toggleClass("hidden");
     });
 
@@ -25,20 +25,25 @@ $(document).ready(function(){
         changeZoom();
     });
 
-    $("#toggleWindow div").on("click",function(){
+    $("#toggleWindow div").on("click", function () {
         $("#toggleWindow").toggleClass("hidden");
         toggleFullScreen();
     });
 
-    $("#closeImage").on("click",function(){
+    $("#closeImage").on("click", function () {
         $("#styl").html("");
         $("#mainImg,#mainImgCont").css("width", 0);
         $("#mainImg,#mainImgCont").css("height", 0);
-        $("#tools").css("display","none");
+        $("#tools").css("display", "none");
+    });
+
+    $(".futRightCopy").on("click", function () {
+        $("#txtArea").val($(".futRight").html()).select();
+        document.execCommand('copy');
     });
 });
 
-function changeZoom(){
+function changeZoom() {
     $('#mainImgCont').css('width', mainW * zoom);
     $('#mainImgCont').css('height', mainH * zoom);
     $('#mySvg').attr('width', mainW * zoom);
@@ -47,7 +52,7 @@ function changeZoom(){
 }
 
 $('html').bind('mousewheel DOMMouseScroll', function (e) {
-    if(isCtrlActive){
+    if (isCtrlActive) {
         var delta = (e.originalEvent.wheelDelta || -e.originalEvent.detail);
         var zoomIn = (delta < 0) ? false : true;
 
@@ -55,7 +60,7 @@ $('html').bind('mousewheel DOMMouseScroll', function (e) {
         e.stopPropagation();
 
         zoom += (zoomIn) ? 1 : -1;
-        zoom = zoom.clamp(1,10);
+        zoom = zoom.clamp(1, 10);
         changeZoom();
     }
 });
@@ -80,6 +85,11 @@ function toggleFullScreen() {
     }
 }
 
-Number.prototype.clamp = function(min, max) {
-  return Math.min(Math.max(this, min), max);
+Number.prototype.clamp = function (min, max) {
+    return Math.min(Math.max(this, min), max);
 };
+
+var app = angular.module("spriteApp", []);
+app.controller("layersCtrl", function ($scope) {
+    $scope.layers = layers;
+});

@@ -1,6 +1,7 @@
 var started = false, add = false, canAdd = true, canRemove = false, sX, sY, eX, eY, tX, tY, isRezActive = false, rezMode = false, dragMode = false;
 var activElem;
 var mainH = 0, mainW = 0, image = null, zoom = 1;
+var layers = {}, curIndex = 0;
 
 Number.prototype.clamp = function (min, max) {
     return Math.min(Math.max(this, min), max);
@@ -65,27 +66,55 @@ $("#mySvg").on("mousemove", function (e) {
 
 
 function addElem(x, y) {
-    console.log("added");
     var svg = document.getElementsByTagName('svg')[0];
     var nRect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
+    var name = "ico"+curIndex;
+    curIndex++;
+
     $(nRect).addClass("sRct");
     $(nRect).attr("transform", "matrix(1 0 0 1 " + (x - 25) + " " + (y - 25) + ")");
     nRect.setAttribute("width", 50);
     nRect.setAttribute("height", 50);
+    nRect.setAttribute("stroke", "black");
+    nRect.setAttribute("stroke-width", 0.5);
+    nRect.setAttribute("stroke-dasharray", "2,2");
+    nRect.setAttribute("width", 50);
     nRect.setAttributeNS(null, "onmousedown", "selectElement(evt)");
+    nRect.setAttribute("data-id", name);
+    nRect.setAttribute("data-name", name);
     $("#rez").before(nRect);
     $("#nameIconsButt").show();
+
+    layers[name] = { "id":name,"name":name, "width":50, "height":50, "posX": x-25, "posY": y-25 };
+    updateScopeLayers();
+}
+
+
+function updateScopeLayers() {
+    var scope = angular.element($("#layersCont")).scope();
+    scope.$apply(function(){
+        scope.layers = layers;
+    })
 }
 
 
 function rmvElem(elem) {
+    var id = $(elem).attr("data-id");
+    delete layers[id];    
     $(elem).remove();
-    if ($("#mySvg rect").length() < 1) {
+
+    if ( $("#mySvg rect").length < 1 ) {
         $("#nameIconsButt").hide();
     }
+
+    updateScopeLayers();
 }
 
-
+$(document).on("click",".deleteLayer",function(){
+    var id = $(this).attr("data-id");
+    var el = $("#mySvg rect[data-id="+id+"]");
+    rmvElem(el);
+});
 
 
 
@@ -158,7 +187,7 @@ function rezDez(evt) {
 
 $(document).on("mousemove", function (evt) {
     var off = $("#mainImgCont").offset();
-    $("#footer").html("x:" + evt.pageX  + " y:"+ evt.pageY + " | SVG Offset: ["+off.left+","+off.top+"]");
+    //$("#footer .futLeft").html("x:" + evt.pageX  + " y:"+ evt.pageY + " | SVG Offset: ["+off.left+","+off.top+"] | ");
 
     if (rezMode) {
         var arr = activElem.getAttributeNS(null, "transform").slice(7, -1).split(' ');

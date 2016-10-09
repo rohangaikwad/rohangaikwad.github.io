@@ -6,6 +6,7 @@
     <title>JS Bin</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="ui.js"></script>
 </head>
@@ -44,11 +45,11 @@
 
             </div>
         </div>
-        <div class="play hidden">
-            <div class="right hidden">
+        <div class="play">
+            <div class="right">
                 
                 <div id="miniToolBox">
-                    <div id="toggleSideBar" class="hidden">
+                    <div id="toggleSideBar" class="">
                         <div class="hide ico ico2">&#8608;</div>
                         <div class="show ico ico2">&#8606;</div>
                     </div>
@@ -66,12 +67,20 @@
 
                 <div class="layerPanel">
                     <div class="singlePreview">
-                        <h3>Icon Preview</h3>
-                        <div id="prevCont">dsfsd</div>
-                    </div>
-                    <div class="singlePreview">
-                        <h3>Icon Preview</h3>
-                        <div id="prevCont">dsfsd</div>
+                        <h3>Icons</h3>
+                        <div id="layersCont" ng-app="spriteApp" ng-controller="layersCtrl">
+                            <div class="layer" ng-repeat="l in layers">
+                                <div class="tick">
+                                    <div class="show">&#9673;</div>
+                                    <div class="hide">&#9711;</div>
+                                </div>
+                                <div class="miniImgCont">
+                                    <div class="bgImg"></div>
+                                </div>
+                                <div class="layerName">{{l.name}}</div>
+                                <div class="deleteLayer" data-id="{{l.id}}">&times;</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,9 +96,18 @@
                 </div>
             </div>
         </div>
-        <div id="footer">X:0 Y:0</div>
+        <div id="footer">
+            <textarea id="txtArea"></textarea>
+            <div class="futLeft"></div>
+            <div class="futRightCopy">&#11615;</div>
+            <div class="futRight">.ico {background-image:url('');background-repeat:no-repeat;background-position: -110px 10px; width:10px; height: 10px}</div>
+        </div>
     </div>
     <style id="styl"></style>
 </body>
 
 </html>
+
+total icons
+included isons
+excluded icons (hidden icons)
