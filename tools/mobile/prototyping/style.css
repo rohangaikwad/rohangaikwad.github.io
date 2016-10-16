@@ -1,8 +1,8 @@
 
 html, body{min-height:100%;font-family:calibri,arial;margin:6px 0;width: auto; max-width: none;}
-body{background:#f1f1f1;}
+body{background:#dedede;}
 #mainContent{display:block;height:100%;width: auto; max-width: none;}
-#mainContent > div{displaY:inline-block;width:270px;text-align:center;vertical-align:top;border-right:solid 1px #fff;height:100%;}
+#mainContent > div{displaY:inline-block;width:280px;text-align:center;vertical-align:top;border-right:solid 1px #ccc;height:100%;}
 
 .lanes{text-align:center;position:relative;pointer-events: none;}
 .lanes:last-child:after{content:"Add Lane";position:absolute;top:0;right:-100px;background:#fff;padding:6px 15px;border-radius:6px;border:solid 1px #ccc;pointer-events: all;cursor:pointer;}
@@ -10,14 +10,14 @@ body{background:#f1f1f1;}
 .addFrame{background:#fff;padding:6px;border-radius:6px;border:solid 1px #ccc;color:#555;cursor:pointer;width:240px;margin:0 auto 12px;pointer-events: all;}
 .addFrame:hover{background:#333;color:#fff}
 
-.frame{width:240px;height:500px;background:#fff;border-radius:12px;position:relative;border: solid 1px #ccc;text-align:center;display:inline-block;margin:0 auto 12px;}
+.frame{width:250px;height:500px;background:#fff;border-radius:12px;position:relative;border: solid 1px #ccc;text-align:center;display:inline-block;margin:0 auto 12px;box-shadow: 1px 2px 0px 3px #ccc;}
 .frame::before{content:"\25CF";position:absolute;top:16px;width:80px;height:6px;background:#fff;border-radius:6px;box-sizing:border-box;margin-left:-35px;background:#e0e0e0;text-indent:-100px;line-height:6px;color:#e0e0e0;font-size:14px;}
 .frame::after{content:"\2190\25EF\2630";position:absolute;bottom:9px;box-sizing:border-box;color:#ccc;letter-spacing:72px;margin-left:-96px;}
 
-.screen{background:#eee;margin:auto;width:228px;height:430px;border:2px solid #ddd;box-sizing:border-box;position:absolute;top:0;bottom:6px;left:0;right:0;overflow-y:auto;line-height:430px;}
+.screen{background:#fff;margin:auto;width:232px;height:430px;padding:6px;border:1px solid #999;border-radius:2px;position:absolute;top:0;bottom:6px;left:0;right:0;overflow-x:hidden;overflow-y:auto;line-height:410px;box-sizing: border-box}
 .screen::-webkit-scrollbar {height: 4px;width: 4px;background: rgba(0,0,0,0.1);}
 .screen::-webkit-scrollbar-thumb {background: rgba(255,255,255,0.8);border-radius:6px;}
-.screen::-webkit-scrollbar-corner {background: #535353;}
+.screen::-webkit-scrollbar-corner {background: rgba(0,0,0,0);}
 
-.screen input{background:none;border:0;text-align:center;vertical-align:middle;pointer-events:all;outline: none;font-size:18px}
+.screen input{background:none;border:0;text-align:center;vertical-align:middle;pointer-events:all;outline: none;font-size:18px;}
 
