@@ -1,0 +1,25 @@
+*{margin:0;padding:0}
+
+body,html{height:100%;width:100%;}
+.container{height:100%;width:100%;font-size:0;}
+.item{
+    -webkit-column-width:   250px;
+    -moz-column-width:      250px;
+    -o-column-width:        250px;
+    -ms-column-width:       250px;
+    column-width:           250px;
+
+    -webkit-column-rule-style:  solid;
+    -moz-column-rule-style:     solid;
+    -o-column-rule-style:       solid;
+    -ms-column-rule-style:      solid;
+    column-rule-style:          solid;
+
+    -webkit-column-gap: 15px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 15px; /* Firefox */
+    column-gap: 15px;
+    display:inline-block;
+}
+
+.icon{width:50px;height:50px;display:table-cell;line-height:50px;text-align:center;font-size:50px;}
+.code{width:200px;height:50px;display:table-cell;vertical-align:middle;text-align:center;font-size:14px}
