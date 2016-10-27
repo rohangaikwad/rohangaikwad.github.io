@@ -14,10 +14,11 @@ body{background:#dedede;}
 .frame::before{content:"\25CF";position:absolute;top:16px;width:80px;height:6px;background:#fff;border-radius:6px;box-sizing:border-box;margin-left:-35px;background:#e0e0e0;text-indent:-100px;line-height:6px;color:#e0e0e0;font-size:14px;}
 .frame::after{content:"\2190\25EF\2630";position:absolute;bottom:9px;box-sizing:border-box;color:#ccc;letter-spacing:72px;margin-left:-96px;}
 
-.screen{background:#fff;margin:auto;width:232px;height:430px;padding:6px;border:1px solid #999;border-radius:2px;position:absolute;top:0;bottom:6px;left:0;right:0;overflow-x:hidden;overflow-y:auto;line-height:410px;box-sizing: border-box}
-.screen::-webkit-scrollbar {height: 4px;width: 4px;background: rgba(0,0,0,0.1);}
+.screen{background:#fff;margin:auto;width:232px;height:430px;padding:6px;border:1px solid #999;border-radius:2px;position:absolute;top:0;bottom:6px;left:0;right:0;overflow-x:hidden;overflow-y:auto;line-height:410px;box-sizing: border-box;pointer-events:all}
+.screen::-webkit-scrollbar {height: 4px;width: 2px;background: #999}
 .screen::-webkit-scrollbar-thumb {background: rgba(255,255,255,0.8);border-radius:6px;}
 .screen::-webkit-scrollbar-corner {background: rgba(0,0,0,0);}
 
 .screen input{background:none;border:0;text-align:center;vertical-align:middle;pointer-events:all;outline: none;font-size:18px;}
 
+img.plcHldr {width:100%;height:auto;vertical-align: top}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Downloadable blobs</title>
+    </head>
+    <body>
+        <pre>
+function saveData(fileContents, fileName, isJSON) {
+    var data = (isJSON) ? JSON.stringify(fileContents) : fileContents;
+    var link = document.createElement('a');
+    link.download = fileName;
+    link.href = 'data:,' + data;
+    link.click();
+    console.log("saving: " + fileName);
+}
+        </pre>
+    </body>
+</html>
