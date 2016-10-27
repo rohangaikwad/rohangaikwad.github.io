@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Downloadable blobs</title>
+    </head>
+    <body>
+        <pre>
+// pretty print array
+function p($a){
+    echo "<pre>".print_r($a,1)."</pre>";
+}
+
+// download media
+function downloadMedia($url, $saveLocation){
+    file_put_contents($saveLocation, fopen($url, 'r'));
+    echo "Downloaded: ".$filename.br;
+}
+
+// download media alternate method
+function downloadMedia($url, $saveLocation){
+    $file = fopen ($url, "rb");
+    if ($file) {
+        $newf = fopen ($saveLocation, "a"); // to overwrite existing file
+        if ($newf) {
+            while(!feof($file)) fwrite($newf, fread($file, 1024 * 8 ), 1024 * 8 );
+        }
+    }
+
+    if ($file) fclose($file);
+    if ($newf) fclose($newf);
+}
+
+// scan folder
+$filterArray = [".", ".."];
+function scanFolder($location, $filterArray){
+    $files = scandir($location);
+    $files = array_diff($files, $filterArray);
+    return array_values($vFiles);
+}
+
+// write array/object to json file 
+function writeToJSON($location, $data){
+    $myfile = fopen($location, "w") or die("Unable to open file!");
+    fwrite($myfile, json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK ));
+    fclose($myfile);
+}
+        </pre>
+    </body>
+</html>
