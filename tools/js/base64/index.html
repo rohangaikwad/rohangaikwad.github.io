@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS Sprites</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div class="cont">
+        <h1>Encode to base64</h1>
+
+        <div>
+            <div class="tab">
+                <button class="enc">Encode Text</button>
+                <input type="file" id="inpFile" value="Encode File">
+            </div>
+            <br>
+            <textarea id="inputString" cols="120" rows="15"></textarea>
+            <button class="copy">Copy</button>
+        </div>
+        <br><br>
+        <h1>Decode from base64</h1>
+        <div>
+            <div class="tab">
+                <button class="dec">Decode Text</button>
+                <input type="checkbox" id="exptoFile"> Export to file
+            </div>
+            <br>
+            <textarea id="outputString" cols="120" rows="15"></textarea>
+            <button class="copy">Copy</button>
+        </div>
+    </div>
+</body>
+
+</html>
