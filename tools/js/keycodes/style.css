@@ -83,6 +83,7 @@
     font-size:14px;
     font-family:arial;
     box-sizing: border-box;
+    transition: all 0.2s;
 }
 
 .keys:before {
@@ -91,11 +92,11 @@
     left: 0;
     top: 0;
     padding: 3px 6px;
-    width: 30px;
+    width: 25px;
 }
 
-.active{background-color:#666;color:#fff}
-.active:before {background-color: #000;color:#fff}
+.active{background-color:#666;color:#fff;transform-origin: 0% 50%;transform:scale(1,1.15);z-index:2;}
+.active:before {background-color: #000;color:#fff;}
 
 @media only screen and (min-width: 300px){ .keys {width: calc(100% - 4px);}}
 @media only screen and (min-width: 360px){ .keys {width: calc(50% - 4px);}}
