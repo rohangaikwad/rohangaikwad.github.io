@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS Sprites</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div class="cont">
+        <div class="menu">
+            <div id="toggleWindow">
+                <div class="max ico">&#9633;</div>
+                <div class="reg ico">&#10697;</div>
+            </div>
+            <ul>
+                <li>File
+                    <ul>
+                        <li>Open Image<input type="file" id="imgInp" value="Choose Image"></li>
+                        <li class="sepTop" id="closeImage">Close</li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="tools">
+                <div id="colorBG"></div>
+                <div id="colorText"></div>
+                <div class="futRightCopy">C</div>
+            </div>
+        </div>
+
+
+        <div class="play">
+            <img id="myImg" style="display:none">
+            <canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+        </div>
+
+
+
+        <textarea id="txtArea"></textarea>
+    </div>
+    <style id="styl"></style>
+</body>
+
+</html>
