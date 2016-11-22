@@ -78,6 +78,7 @@ function loadIcons(data){
                 var icon = {};
                 icon.unicode = unicode;
                 icon.code = code;
+                icon.htmlCode = "&#x"+code;
                 //icon.d = svg[i].getAttribute('d').toString();
                 icon.name = svg[i].getAttribute('glyph-name').toString();;
                 icons.push(icon);
