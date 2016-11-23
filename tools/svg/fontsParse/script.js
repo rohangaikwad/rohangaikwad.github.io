@@ -51,6 +51,7 @@ function loadFont(data){
     +"}";
 
     $("#styl").html(cssString);
+    $(".notifications").html("- Font loaded");
 }
 
 function loadIcons(data){    
@@ -86,6 +87,7 @@ function loadIcons(data){
         }
 
         updateScopeIcons();
+        $(".notifications").html("- " + icons.length +" icons Loaded");
 
     }, 100);
 }

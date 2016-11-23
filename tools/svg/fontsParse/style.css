@@ -1,6 +1,7 @@
 * {font-family: 'Roboto Condensed', sans-serif;box-sizing:border-box}
 html,body {height: 100%;margin:0}
 .toolbar{width:100%;padding:10px;background:#444;color:#fff}
+.notifications{line-height:24px;font-size:12px;}
 #txtArea{position:absolute;left:-9999px}
 #mySVG{display:none}
 
