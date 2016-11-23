@@ -1,10 +1,11 @@
 * {font-family: 'Roboto Condensed', sans-serif;box-sizing:border-box}
 html,body {height: 100%;margin:0}
-.toolbar{width:100%;padding:10px;background:#444;color:#fff}
+.toolbar{width:100%;padding:10px;background:#444;color:#fff;position: fixed;top: 0;}
 .notifications{line-height:24px;font-size:12px;}
 #txtArea{position:absolute;left:-9999px}
 #mySVG{display:none}
 
+#iconsCont { padding-top: 70px;}
 .layer {display:inline-block;padding:2px 10px;width:25%;min-width:300px;max-width:350px;}
 .layer > div{display:inline-block;font-weight:400;font-size:15px;}
 .layer > div.icon{font-family:"CustomFont";font-size:28px;width:50px;text-align:center}
