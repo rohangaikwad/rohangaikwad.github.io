@@ -1,0 +1,10 @@
+* {font-family: arial, sans-serif;box-sizing:border-box}
+html,body {height: 100%;margin:0}
+.container{padding:30px 60px;}
+
+h1{display:inline-block;width:150px;font-size:18px;margin:0 0 10px 0}
+
+#ta{position: absolute;left:-9999px}
+
+button{display:inline-block;background:#fff;border:solid 1px #999;margin-left:6px;}
+input,button{box-sizing:border-box;height:24px;}
