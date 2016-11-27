@@ -38,6 +38,8 @@ function readURL(input) {
 }
 
 var s = [];
+var unis = [];
+cnt = 0;
 
 function loadCSS(data){    
     if(data.indexOf("base64,") !== -1){
@@ -57,8 +59,7 @@ function loadCSS(data){
     for(i = 0;i < ss.cssRules.length; i++){
         var r = ss.cssRules[i];
         if(r.cssText.indexOf("content") != -1){
-            //console.log(r);
-            s.push(r.selectorText);
+            cnt++;
             var sel = r.selectorText.replace(/:/g, "");
             sel = sel.replace("before", "");
             sel = sel.replace(".", "");
@@ -73,13 +74,18 @@ function loadCSS(data){
             glyph.unicode = unicode;
             glyph.hex = hex;
             glyph.htmlCode = "&#x"+hex;
-            glyphs.push(glyph);
+
+            if( unis.indexOf(unicode) >= 0 ) {
+                console.log(unicode + " already exists");
+            } else {
+                unis.push(unicode);
+                glyphs.push(glyph);
+            }
         }
     }
 
+    console.log(unis.length);
     updateScopeIcons();
-    //console.log(glyphs);
-    //console.log(ss);
 }
 
 function loadIcons(data){    
