@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CSS Glyph Reader</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="script.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="toolbar">
+            Select stylesheet: <input type="file" id="imgInp" value="Choose Image">
+            <div class="notifications"></div>
+        </div>
+
+
+        <div id="glyphsCont" ng-app="cssGlyphsApp" ng-controller="glyphsController">
+            <input type="radio" name="view" value="text" ng-model="viewType" checked="checked"/> List
+            <input type="radio" name="view" value="script" ng-model="viewType"/>  Fontlab Python Script<br><br>
+
+            
+            <div class="py" ng-show="viewType == 'script'">
+                for g in fl.font.glyphs :<br>
+            </div>
+
+            <div class="layer" ng-repeat="g in glyphs">
+                <div class="py" ng-show="viewType == 'script'">&nbsp;&nbsp;if ( g.unicode == {{g.unicode}} ) : g.name = "{{g.sel}}"</div>
+
+                <div class="list" ng-hide="viewType == 'script'">
+                    <div class="code">&#x{{g.hex}};</div>
+                    <div class="code">\{{g.hex}}</div>
+                    <div class="name">{{g.sel}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style id="styl"></style>
+</body>
+
+</html>
