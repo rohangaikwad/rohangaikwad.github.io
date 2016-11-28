@@ -32,7 +32,7 @@
                 <div class="py" ng-show="viewType == 'script'">&nbsp;&nbsp;if ( g.unicode == {{g.unicode}} ) : g.name = "{{g.sel}}"</div>
 
                 <div class="list" ng-hide="viewType == 'script'">
-                    <div class="icon" ng-show="fontLoaded == true" ng-bind-html="ico($index)">{{ico($index)}}</div>
+                    <div class="icon" ng-show="fontLoaded == true" ng-bind-html="ico($index)"></div>
                     <div class="code">&#x{{g.hex}};</div>
                     <div class="code">\{{g.hex}}</div>
                     <div class="name">{{g.sel}}</div>
