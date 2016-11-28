@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.9/angular-sanitize.js"></script>
     <script type="text/javascript" src="script.js" charset="utf-8"></script>
 </head>
 
@@ -31,6 +32,7 @@
                 <div class="py" ng-show="viewType == 'script'">&nbsp;&nbsp;if ( g.unicode == {{g.unicode}} ) : g.name = "{{g.sel}}"</div>
 
                 <div class="list" ng-hide="viewType == 'script'">
+                    <div class="icon" ng-show="fontLoaded == true" ng-bind-html="ico($index)">{{ico($index)}}</div>
                     <div class="code">&#x{{g.hex}};</div>
                     <div class="code">\{{g.hex}}</div>
                     <div class="name">{{g.sel}}</div>
@@ -39,6 +41,7 @@
         </div>
     </div>
     <style id="styl"></style>
+    <style id="fontStyl"></style>
 </body>
 
 </html>
