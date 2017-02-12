@@ -23,6 +23,7 @@ $(document).ready(function () {
     });
 });
 
+
 $(document).on("mousedown", "#myCanvas", function (e) {
     var offset = $(this).offset();
     var x = e.pageX - offset.left;
@@ -77,5 +78,72 @@ function readURL(input) {
             }
         }
         reader.readAsDataURL(input.files[0]);
+    }
+}
+
+setTimeout(function(){
+    var c = document.getElementById("myCnvas");
+var ctx = c.getContext("2d");
+var img = document.getElementById("myImg");
+ctx.drawImage(img, 10, 10);
+alert(c.toDataURL());
+}, 2000);
+
+function loadURL() {
+    var url = prompt("Please enter image url", "");
+    
+    if (url != null) {
+
+
+        
+      $.ajax({ 
+        type: "GET", 
+        url: url, 
+        dataType: "jsonp", 
+        cache : false, 
+        jsonp : "onJSONPLoad", 
+        jsonpCallback: "newarticlescallback", 
+        crossDomain: "true", 
+        success: function(r) { 
+            console.log(r);
+        } 
+      });
+
+
+
+        var tmpImg = new Image();
+        tmpImg.src=url; //or  document.images[i].src;
+        $(tmpImg).on('load',function(e){
+            tmpImg.setAttribute('crossOrigin', 'Anonymous');
+            tmpImg.crossOrigin = 'Anonymous';
+
+            mainW = tmpImg.width;
+            mainH = tmpImg.height;
+
+            $('#myCanvas').attr("width", mainW);
+            $('#myCanvas').attr("height", mainH);
+
+            $("#myImg").attr("src", url);
+            $("#myImg").attr('crossOrigin', 'Anonymous');
+
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("myImg");
+            ctx.drawImage(img,0,0);
+
+            context = document.getElementById('myCanvas').getContext('2d');
+        });
+
+
+
+
+        // var img = $("#myImg").attr('src', url)
+        // .on('load', function() {
+        //     if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+        //         alert('Invalid image.');
+        //     } else {
+        //         alert(img.width);
+        //     }
+        // });
     }
 }

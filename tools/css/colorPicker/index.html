@@ -19,7 +19,8 @@
             <ul>
                 <li>File
                     <ul>
-                        <li>Open Image<input type="file" id="imgInp" value="Choose Image"></li>
+                        <li onclick="loadURL();">Open Image URL</li>
+                        <li>Open Image File<input type="file" id="imgInp" value="Choose Image"></li>
                         <li class="sepTop" id="closeImage">Close</li>
                     </ul>
                 </li>
@@ -33,7 +34,8 @@
 
 
         <div class="play">
-            <img id="myImg" style="display:none">
+            <img id="myImg" style="display:none"  src="https://d13yacurqjgara.cloudfront.net/users/20007/screenshots/1316125/attachments/184736/Full.png">
+            <canvas id="myCnvas">Your browser does not support the HTML5 canvas tag.</canvas>
             <canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
         </div>
 
