@@ -81,39 +81,16 @@ function readURL(input) {
     }
 }
 
-setTimeout(function(){
-    var c = document.getElementById("myCnvas");
-var ctx = c.getContext("2d");
-var img = document.getElementById("myImg");
-ctx.drawImage(img, 10, 10);
-alert(c.toDataURL()); 
-}, 2000);
 
 function loadURL() {
     var url = prompt("Please enter image url", "");
     
     if (url != null) {
 
-
-        
-      $.ajax({ 
-        type: "GET", 
-        url: url, 
-        dataType: "jsonp", 
-        cache : false, 
-        jsonp : "onJSONPLoad", 
-        jsonpCallback: "newarticlescallback", 
-        crossDomain: "true", 
-        success: function(r) { 
-            console.log(r);
-        } 
-      });
-
-
-
         var tmpImg = new Image();
         tmpImg.src=url; //or  document.images[i].src;
         $(tmpImg).on('load',function(e){
+            console.log(e);
             tmpImg.setAttribute('crossOrigin', 'Anonymous');
             tmpImg.crossOrigin = 'Anonymous';
 
