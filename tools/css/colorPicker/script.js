@@ -86,7 +86,7 @@ setTimeout(function(){
 var ctx = c.getContext("2d");
 var img = document.getElementById("myImg");
 ctx.drawImage(img, 10, 10);
-alert(c.toDataURL());
+alert(c.toDataURL()); 
 }, 2000);
 
 function loadURL() {
