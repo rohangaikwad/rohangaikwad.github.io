@@ -1,0 +1,32 @@
+* {margin: 0;}
+
+.mainImg {position: relative;width: 200px;height: 200px;background: red;display: inline-block;}
+.mainImg img {width: 100%;height: auto;}
+.mainImg > img {cursor: crosshair;}
+.hasTint {background-color:red;}
+.hasTint > img{opacity:0.5;}
+
+.mainImg .zoomCont {display: inline-block;position: absolute;left: 100%;top: 0;width: 200px;height: 200px;box-sizing: border-box;border: solid 1px cyan;}
+.mainImg .zoomCont .zoomImg {width: 100%;height: 100%;position: relative;}
+.mainImg .zoomCont .zoomImg img {width: 200%;height: auto;position: absolute;top: 0;left: 0;z-index: -1;}
+
+.mainImg:hover .zoomCont {display: inline-block;}
+
+#cal, #dim, #off, #pos {padding: 20px 20px 0;background: rgba(255, 255, 255, 0.5);width: 250px;}
+.hi {position: absolute;box-sizing: border-box;width: 100px;height: 100px;top: 0;left: 0;pointer-events: none;background-color: rgba(255, 255, 255, 0.7);z-index:1;overflow:hidden;}
+.hi img{position:absolute;top:0;left:0;width:200px;pointer-events:none;}
+
+
+
+.ampleZoom-container {position:relative;font-size:0;cursor:crosshair;}
+.ampleZoom-container .ampleZoom-copy {width:100%;height:100%;position:relative;}
+.ampleZoom-container.tinted .ampleZoom-copy {background-color:red;}
+.ampleZoom-container .ampleZoom-copy img {width:100%;height:100%;}
+.ampleZoom-container.tinted .ampleZoom-copy > img {opacity:0.5;}
+.ampleZoom-container .ampleZoom-copy .ampleZoom-marker {position:absolute;top:0;box-sizing:border-box;overflow:hidden;z-index:1;pointer-events:none;background-color:rgba(255,255,255,0.5);width:50%;height:50%;display:none;}
+.ampleZoom-container .ampleZoom-copy .ampleZoom-marker img {position:absolute;display:none}
+.ampleZoom-container.tinted .ampleZoom-copy .ampleZoom-marker img {display:inline-block}
+
+.ampleZoom-container .ampleZoom-magnified {position:absolute;display:none;box-sizing:border-box;border:solid 0px rgba(0,0,0,0);left:100%;top:0;width:100%;height:100%;}
+.ampleZoom-container .ampleZoom-magnified .rel {position:relative;width:100%;height:100%;overflow:hidden;}
+.ampleZoom-container .ampleZoom-magnified .rel img {position:absolute;width:100%;height:100%;z-index:-1;}
