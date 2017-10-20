@@ -1,0 +1,10 @@
+* {margin: 0;font-family: calibri;padding:0;}
+html,body {height: 100%}
+
+.cont {
+    padding: 20px;
+}
+
+textarea{overflow-y: auto}
+
+button{display:inline-block;vertical-align:top;font-size:14px;padding:0 8px;}

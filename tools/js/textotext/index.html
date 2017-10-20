@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture to Text</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div class="cont">
+        <h1>Encode to image</h1>
+
+        <div>
+            <textarea id="inputString" cols="120" rows="15"></textarea>
+            <canvas id="canv" width="10" height="10"></canvas>
+            <br>
+            <button class="save">Save</button>
+        </div>
+        <br><br>
+        <h1>Decode from image</h1>
+        <div>
+            <div class="tab">
+                <input type="file" id="inpFile" value="Encode File">
+            </div>
+            <br>
+            <textarea id="outputString" cols="120" rows="15"></textarea>
+            <button class="copy">Copy</button>
+        </div>
+    </div>
+</body>
+
+</html>
