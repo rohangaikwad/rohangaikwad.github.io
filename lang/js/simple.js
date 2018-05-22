@@ -24,6 +24,11 @@ $(document).ready(function(){
         $('#local').val("");
         $('#eng').val("").focus();
     });
+
+    $(document).on("click","#download",function(){
+        var x = localStorage.getItem("phrases");
+        saveData(JSON.parse(x), "lang.json", true);
+    });
 });
 
 function render(){
@@ -33,4 +38,13 @@ function render(){
     });
     html += "</table>";
     $("#list").html(html);
+}
+
+function saveData(fileContents, fileName, isJSON) {
+    var data = (isJSON) ? JSON.stringify(fileContents) : fileContents;
+    var link = document.createElement('a');
+    link.download = fileName;
+    link.href = 'data:,' + data;
+    link.click();
+    console.log("saving: " + fileName);
 }
