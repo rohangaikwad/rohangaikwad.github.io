@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="js/wanakana-5.3.1.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html,body { margin: 0; font-family: segoe, sans-serif; }
+
+    table {
+      table-layout: fixed;
+      height: 100svh;
+    }
+    th { text-align: left }
+    textarea { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  
+  <table width="100%">
+    <thead>
+      <tr>
+        <th>Romaji</th>
+        <th>Hiragana</th>
+        <th>Katakana</th>
+        <th>Kana</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><textarea id="rom"></textarea></td>
+        <td><textarea id="hir"></textarea></td>
+        <td><textarea id="kat"></textarea></td>
+        <td><textarea id="kan"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <script>    
+    const translate = {
+      rom: (val) => wanakana.toRomaji(val),
+      hir: (val) => wanakana.toHiragana(val, { useObsoleteKana: true }),
+      kat: (val) => wanakana.toKatakana(val, { useObsoleteKana: true }),
+      kan: (val) => wanakana.toKana(val),
+    }
+    
+    const textAreas = Array.from(document.querySelectorAll("textarea"));
+    textAreas.forEach(t => {
+      t.addEventListener("keyup", () => {
+        const filtered = textAreas.filter(ta => ta.id != t.id);
+        filtered.forEach(f => {
+          const val = t.value.trim();
+          f.value = translate[f.id](val);
+        })
+      })
+    });
+  </script>
+
+</body>
+</html>
